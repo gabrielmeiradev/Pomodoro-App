@@ -38,6 +38,7 @@ body{
     height: 100vh;
     font-family: 'IBM Plex Mono', monospace;
     background: #000000;
+    overflow-x: hidden;
 }
 
 #app{
@@ -252,4 +253,19 @@ button{
     .logo {
         font-size: .8rem;
     }
+}
+
+.mute-sound {
+    position: absolute;
+    bottom: 40px;
+    right: 40px;
+    height: 55px;
+    width: 55px;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, .1);
+    cursor: pointer;
+    color: #ffffff;
+    display: grid;
+    z-index: 999;
+    place-items: center;
 }

@@ -1,5 +1,6 @@
 import { addTask, formHandler, deleteTask } from './tasks.js'
 import { startTimer, pauseTimer, stopTimer, switchMode } from './timer.js'
+import { playSound } from './sounds.js'
 
 // Time options
 export const timeOptionLongBreak = document.querySelector('.time-option.long-break')
@@ -25,6 +26,10 @@ export const addTaskInput = document.querySelector('#task-input')
 // Add task button
 export const addTaskButton = document.querySelector('.add-task-button')
 
+// Mute button
+export const muteButton = document.querySelector('.mute-sound');
+export const muteIcon = document.querySelector('.mute-sound-icon');
+
 // Delete Task
 window.deleteTask = deleteTask
 
@@ -44,7 +49,7 @@ function startPauseToggle(startTimer, pauseTimer){
 
     switch(startTimerButton.dataset.status){
         case 'pause':
-            button.label = 'Play'
+            button.label = 'Start'
             button.className = 'play'
             button.icon = 'play_arrow'
             startTimerButton.dataset.status = 'play'
@@ -79,7 +84,14 @@ startTimerButton.addEventListener('click', () => {
 
 
 stopTimerButton.addEventListener('click', () => {
-    startPauseToggle(startTimer, pauseTimer)
+    startTimerButton.classList.remove('pause')
+    startTimerButton.classList.add('play')
+    startTimerButton.innerHTML =  `
+    <span class="material-symbols-outlined">
+        play_arrow
+    </span>
+    Start
+    `
     stopTimer()
 })
 
@@ -122,6 +134,24 @@ addTaskButton.addEventListener('click', () => {
     }
 })
 
+const buttons = document.querySelectorAll('.click');
+buttons.forEach((button) => {
+    button.onclick = () => { playSound('click') }
+})
+
+muteButton.addEventListener('click', () => { toggleMuteSound() })
+
+export let muted = false
+
+const toggleMuteSound = () => {
+    muted = !muted
+
+    if(muted){
+        muteIcon.innerText = 'volume_up'
+    } else {
+        muteIcon.innerText = 'volume_off'
+    }
+}
 
 // Timer options events
 timeOptionShortBreak.addEventListener('click', () => { 

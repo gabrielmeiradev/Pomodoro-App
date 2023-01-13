@@ -23,19 +23,19 @@
                 </span>
             </h1>
             <div class="time-options">
-                <a class="mode time-option pomodoro active">
+                <a class="mode time-option pomodoro active click">
                     <span class="material-symbols-outlined">
                         schedule
                     </span>
                     <span class="time-option-desc">Pomodoro</span>
                 </a>
-                <a class="mode time-option short-break">
+                <a class="mode time-option short-break click">
                     <span class="material-symbols-outlined">
                         acute
                     </span>
                     <span class="time-option-desc">Short break</span>
                 </a>
-                <a class="mode time-option long-break">
+                <a class="mode time-option long-break click">
                     <span class="material-symbols-outlined">
                         more_time
                     </span>
@@ -48,13 +48,13 @@
                 <h1><span id="minutes">25</span>:<span id="seconds">00</span></h1>
             </div>
             <div class="timer-buttons">
-                <button class="timer-button start" id="start-timer" data-status="play">
+                <button class="timer-button start click" id="start-timer" data-status="play">
                     <span class="material-symbols-outlined">
                         play_arrow
                     </span>
                     Start
                 </button>
-                <button class="timer-button stop" id="stop-timer">
+                <button class="timer-button stop click" id="stop-timer">
                     <span class="material-symbols-outlined">
                         stop
                     </span>
@@ -64,7 +64,7 @@
         </section>
         <section id="tasks-area">
             <form id="task-form">
-                <button class="add-task-button">
+                <button class="add-task-button click">
                     <span class="material-symbols-outlined">
                         add_task
                     </span>
@@ -73,6 +73,11 @@
             </form>
             <div id="tasks"></div>
         </section>
+    </div>
+    <div class="mute-sound">
+        <span class="material-symbols-outlined mute-sound-icon">
+            volume_off
+        </span>
     </div>
     <script src="./js/index.js" type="module"></script>
 </body>
