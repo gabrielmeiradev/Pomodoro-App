@@ -1,0 +1,255 @@
+/* http://meyerweb.com/eric/tools/css/reset/ 
+   v2.0 | 20110126
+   License: none (public domain)
+*/
+
+html, body, div, span, applet, object, iframe,
+h1, h2, h2, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed, 
+figure, figcaption, footer, header, hgroup, 
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+	margin: 0;
+	padding: 0;
+	border: 0;
+	font-size: 100%;
+	font: inherit;
+	vertical-align: baseline;
+}
+/* HTML5 display-role reset for older browsers */
+article, aside, details, figcaption, figure, 
+footer, header, hgroup, menu, nav, section {
+	display: block;
+}
+
+body{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    width: 100vw;
+    color: #FFFFFF;
+    height: 100vh;
+    font-family: 'IBM Plex Mono', monospace;
+    background: #000000;
+}
+
+#app{
+    width: 90vw;
+    margin: auto;
+    box-sizing: border-box;
+    padding: 40px 40px 0 40px;
+    display: flex;
+    flex-direction: column;
+    max-height: 100vw;
+}
+
+#app header{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.logo{
+    font-family: 'Inter', sans-serif;
+    font-weight: 700;
+    font-size: 1.2rem;
+    display: flex;
+    align-items: center;
+    gap: 3px;
+}
+
+#timer-area{
+    margin: 0 auto;
+    width: fit-content;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+}
+
+.timer{
+    text-align: center;
+    font-size: 8rem;
+    font-weight: bold;
+}
+
+.timer-buttons{
+    display: flex;
+    gap: 10px;
+    margin-bottom: 20px;
+    justify-content: center;
+}
+
+button{
+    font-family: 'Inter', sans-serif;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    gap: 5px;
+}
+
+.add-task-button{
+    padding: 20px 40px;
+    box-sizing: border-box;
+    background: rgba(255, 255, 255, .03);
+    border: 2px dashed rgba(255, 255, 255, 0.4);
+    margin: 10px 0;
+    width: 100%;
+    border-radius: 8px;
+    color: white;
+    gap: 15px;
+    font-size: 1rem;
+}
+
+.timer-button{
+    flex: 1;
+    border: none;
+    border-radius: 8px;
+    -webkit-box-shadow: 0px 6px 1px var(--border-color);
+    -moz-box-shadow: 0px 6px 1px var(--border-color);
+    box-shadow: 0px 6px 1px var(--border-color);
+    padding: 10px;
+    background: var(--background);
+    color: white;
+    font-size: 1.2rem;
+    transition: .2s ease;
+    margin-bottom: 6px;
+}
+
+
+.timer-button.start{
+    --background: #003A02;
+    --border-color: #002107;
+}
+
+.timer-button.stop{
+    --background: #4A0C0C;
+    --border-color: #210000;
+}
+
+.timer-button.pause{
+    --background: #ffd429;
+    color: black;
+    --border-color: #211702;
+}
+
+#task-input{
+    border: none;
+    display: none;
+    outline: none;
+    padding: 20px 30px;
+    font-size: 1rem;
+    box-sizing: border-box;
+    background: rgba(255, 255, 255, .08);
+    width: 100%;
+    color: white;
+    margin-bottom: 10px;
+    border-radius: 5px;
+}
+
+#tasks-area{
+    width: 100%;
+    flex: 1;
+}
+
+#tasks{
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    overflow-y: scroll;
+}
+
+#tasks::-webkit-scrollbar {
+    display: none;
+}
+
+.task.active{
+    border-color: #0080ff;
+}
+
+.task:not(.active){
+    opacity: 30%;
+}
+
+.task-ready{
+    background: none;
+    border: none;
+    color: white;
+}
+
+.task{
+    background: rgba(0, 0, 0, 1);
+    padding: 20px;
+    box-sizing: border-box;
+    border: 1px solid #FFFFFF;
+    border-radius: 9px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.task-details{
+    display: flex;
+    gap: 10px;
+    align-items: center;
+}
+
+.time-options{
+    display: flex;
+    gap: 40px;
+    align-items: center;
+}
+
+.time-option{
+    color: rgba(255, 255, 255, .5);
+    cursor: pointer;
+    display: flex;
+    gap: 5px;
+    
+    transition: all ease-in .2s;
+    align-items: center;
+}
+
+.time-option.active{
+    color: #FFFFFF;
+}
+
+.task-position{
+    color: rgba(255, 255, 255, .6);
+}
+
+@media screen and (max-width: 800px){
+    .time-option:not(.active) > .time-option-desc, .logo-text {
+        display: none;
+    }
+
+    #app {
+        padding: 10px 10px 0 10px;
+    }
+
+    .time-options{
+        gap: 20px;
+    }
+
+    .time-option{
+        background: rgba(255, 255, 255, .1);
+        border-radius: 6px;
+        padding: 7px;
+        font-size: .6rem;
+    }
+
+    .timer {
+        font-size: 5rem;
+    }
+
+    .logo {
+        font-size: .8rem;
+    }
+}

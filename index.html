@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en" data-bs-theme="dark">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pomodoro Timer</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600;700&family=Inter:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <div id="app">
+        <header>
+            <h1 class="logo">
+                <span class="material-symbols-outlined">
+                    work_history
+                </span>
+                <span class="logo-text">
+                    Pomodoro
+                </span>
+            </h1>
+            <div class="time-options">
+                <a class="mode time-option pomodoro active">
+                    <span class="material-symbols-outlined">
+                        schedule
+                    </span>
+                    <span class="time-option-desc">Pomodoro</span>
+                </a>
+                <a class="mode time-option short-break">
+                    <span class="material-symbols-outlined">
+                        acute
+                    </span>
+                    <span class="time-option-desc">Short break</span>
+                </a>
+                <a class="mode time-option long-break">
+                    <span class="material-symbols-outlined">
+                        more_time
+                    </span>
+                    <span class="time-option-desc">Long break</span>
+                </a>
+            </div>
+        </header>
+        <section id="timer-area">
+            <div class="timer">
+                <h1><span id="minutes">25</span>:<span id="seconds">00</span></h1>
+            </div>
+            <div class="timer-buttons">
+                <button class="timer-button start" id="start-timer" data-status="play">
+                    <span class="material-symbols-outlined">
+                        play_arrow
+                    </span>
+                    Start
+                </button>
+                <button class="timer-button stop" id="stop-timer">
+                    <span class="material-symbols-outlined">
+                        stop
+                    </span>
+                    Stop
+                </button>
+            </div>
+        </section>
+        <section id="tasks-area">
+            <form id="task-form">
+                <button class="add-task-button">
+                    <span class="material-symbols-outlined">
+                        add_task
+                    </span>
+                    Add task</button>
+                <input type="text" placeholder="Task description" id="task-input" autocomplete="off">
+            </form>
+            <div id="tasks"></div>
+        </section>
+    </div>
+    <script src="./js/index.js" type="module"></script>
+</body>
+</html>
