@@ -22,7 +22,7 @@ export function renderTasks(){
                 <p>${task}</p>
             </div>
             <div class="task-aside">
-                <button onclick="deleteTask(${i})" class="task-ready button" disabled>
+                <button onclick="deleteTask(${i})" class="task-ready" disabled>
                 <span class="material-symbols-outlined">
                     task_alt
                 </span>
@@ -51,13 +51,12 @@ export function addTask(){
     renderTasks()
 
     container.scrollTop = container.scrollHeight
-
 }
 
 export function deleteTask(index){
     tasks.splice(index, 1)
-
+    
     renderTasks()
-
+    
     container.scrollTop = 0
 }
