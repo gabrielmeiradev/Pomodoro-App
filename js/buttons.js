@@ -69,21 +69,3 @@ export function updateButton(currentActive){
 }
 
 
-export function switchModeDom(mode){
-    switchMode(mode) 
-    let button
-    switch(mode){
-        case 'short-break':
-            button = timeOptionShortBreak
-            break
-        case 'long-break':
-            button = timeOptionLongBreak
-            break
-        case 'pomodoro':
-            button = timeOptionPomodoro
-            break
-    }
-
-
-    updateButton(button)
-}

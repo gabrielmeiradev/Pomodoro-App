@@ -1,6 +1,6 @@
 import { formHandler, deleteTask } from './tasks.js'
-import { startTimer, pauseTimer } from './timer.js'
-import { startPauseToggle, updateUIOnStop, switchModeDom } from './buttons.js'
+import { startTimer, pauseTimer, switchMode } from './timer.js'
+import { startPauseToggle, updateUIOnStop } from './buttons.js'
 import { playSound } from './sounds.js'
 
 // Time options
@@ -82,12 +82,12 @@ const toggleMuteSound = () => {
 
 // Timer options events
 timeOptionShortBreak.addEventListener('click', () => { 
-    switchModeDom('short-break')
+    switchMode('short-break')
 })
 timeOptionLongBreak.addEventListener('click', () => {
-    switchModeDom('long-break')
+    switchMode('long-break')
 })
 timeOptionPomodoro.addEventListener('click', () => { 
-    switchModeDom('pomodoro')
+    switchMode('pomodoro')
 })
 
