@@ -41,6 +41,30 @@ body{
     overflow-x: hidden;
 }
 
+/* Removing blue highlight for mobile users */
+
+input,
+textarea,
+button,
+select,
+a {
+    -webkit-tap-highlight-color: transparent;
+}
+
+/* Global styles */
+
+button{
+    font-family: 'Inter', sans-serif;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    gap: 5px;
+}
+
+
+/* App styles */
+
 #app{
     width: 90vw;
     margin: auto;
@@ -51,6 +75,7 @@ body{
     max-height: 100vw;
 }
 
+/* Header styles */
 #app header{
     display: flex;
     align-items: center;
@@ -65,6 +90,28 @@ body{
     align-items: center;
     gap: 3px;
 }
+
+.time-options{
+    display: flex;
+    gap: 40px;
+    align-items: center;
+}
+
+.time-option{
+    color: rgba(255, 255, 255, .5);
+    cursor: pointer;
+    display: flex;
+    gap: 5px;
+    
+    transition: all ease-in .2s;
+    align-items: center;
+}
+
+.time-option.active{
+    color: #FFFFFF;
+}
+
+/* Timer area styles */
 
 #timer-area{
     margin: 0 auto;
@@ -87,14 +134,6 @@ body{
     justify-content: center;
 }
 
-button{
-    font-family: 'Inter', sans-serif;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    cursor: pointer;
-    gap: 5px;
-}
 
 .add-task-button{
     padding: 20px 40px;
@@ -140,6 +179,8 @@ button{
     color: black;
     --border-color: #211702;
 }
+
+/* Task area styles */
 
 #task-input{
     border: none;
@@ -202,29 +243,11 @@ button{
     align-items: center;
 }
 
-.time-options{
-    display: flex;
-    gap: 40px;
-    align-items: center;
-}
-
-.time-option{
-    color: rgba(255, 255, 255, .5);
-    cursor: pointer;
-    display: flex;
-    gap: 5px;
-    
-    transition: all ease-in .2s;
-    align-items: center;
-}
-
-.time-option.active{
-    color: #FFFFFF;
-}
-
 .task-position{
     color: rgba(255, 255, 255, .6);
 }
+
+/* Mobile settings */
 
 @media screen and (max-width: 800px){
     .time-option:not(.active) > .time-option-desc, .logo-text {
@@ -255,6 +278,7 @@ button{
     }
 }
 
+/* Mute sound styles */
 .mute-sound {
     position: fixed;
     bottom: 25px;
