@@ -1,5 +1,6 @@
 import { addTask, formHandler, deleteTask } from './tasks.js'
-import { startTimer, pauseTimer, stopTimer, switchMode } from './timer.js'
+import { startTimer, pauseTimer } from './timer.js'
+import { startPauseToggle, updateUIOnStop, switchModeDom } from './buttons.js'
 import { playSound } from './sounds.js'
 
 // Time options
@@ -35,94 +36,14 @@ window.deleteTask = deleteTask
 
 addTaskForm.addEventListener('submit', formHandler)
 
-function startPauseToggle(startTimer, pauseTimer){
-    
-    class Button {
-        constructor(label, className, icon){
-            this.label = label
-            this.className = className,
-            this.icon = icon
-        }
-    }
-
-    const button = new Button
-
-    switch(startTimerButton.dataset.status){
-        case 'pause':
-            button.label = 'Start'
-            button.className = 'play'
-            button.icon = 'play_arrow'
-            startTimerButton.dataset.status = 'play'
-            startTimerButton.classList.remove('pause')
-            pauseTimer()
-            break
-        case 'play':
-            button.label = 'Pause'
-            button.className = 'pause'
-            button.icon = 'pause'
-            startTimerButton.dataset.status = 'pause'
-            startTimerButton.classList.remove('play')
-            startTimer()
-            break
-    }
-
-    // Filling info
-    startTimerButton.classList.add(button.className)
-    startTimerButton.innerHTML = `
-    <span class="material-symbols-outlined">
-        ${button.icon}
-    </span>
-    ${button.label}
-    `
-
-
-}
-
 startTimerButton.addEventListener('click', () => { 
     startPauseToggle(startTimer, pauseTimer)
 })
 
-
-stopTimerButton.addEventListener('click', () => {
-    startTimerButton.classList.remove('pause')
-    startTimerButton.classList.add('play')
-    startTimerButton.innerHTML =  `
-    <span class="material-symbols-outlined">
-        play_arrow
-    </span>
-    Start
-    `
-    stopTimer()
-})
+stopTimerButton.addEventListener('click', updateUIOnStop)
 
 // addTaskButton.addEventListener('click', addTask)
 
-export function updateButton(currentActive){
-    const timeOptions = document.querySelectorAll('.time-option');
-    timeOptions.forEach((timeOption) => {
-        timeOption.classList.remove('active')
-    })
-    currentActive.classList.add('active')
-}
-
-export function switchModeDom(mode){
-    switchMode(mode) 
-    let button
-    switch(mode){
-        case 'short-break':
-            button = timeOptionShortBreak
-            break
-        case 'long-break':
-            button = timeOptionLongBreak
-            break
-        case 'pomodoro':
-            button = timeOptionPomodoro
-            break
-    }
-
-
-    updateButton(button)
-}
 
 addTaskButton.addEventListener('click', () => {
     if (!addTaskInput.style.display || addTaskInput.style.display == "none") {

@@ -1,4 +1,5 @@
-import { minutes, minutes as minutesElement, seconds as secondsElement, switchModeDom } from './index.js';
+import { minutes as minutesElement, seconds as secondsElement } from './index.js';
+import { switchModeDom } from './buttons.js';
 import { deleteTask, tasks } from './tasks.js';
 import { playSound } from './sounds.js';
 

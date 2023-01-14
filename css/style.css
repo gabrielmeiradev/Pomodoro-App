@@ -256,9 +256,9 @@ button{
 }
 
 .mute-sound {
-    position: absolute;
-    bottom: 40px;
-    right: 40px;
+    position: fixed;
+    bottom: 25px;
+    right: 25px;
     height: 55px;
     width: 55px;
     border-radius: 50%;
