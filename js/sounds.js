@@ -1,6 +1,6 @@
 import { muted } from  './index.js';
 
-export function playSound(type){
+export async function playSound(type){
     if(muted) return
     let audio
     switch(type){
@@ -14,5 +14,5 @@ export function playSound(type){
             audio = new Audio('../assets/sounds/click.wav')
             break
         }
-    audio.play();
+    await audio.play();
 }
