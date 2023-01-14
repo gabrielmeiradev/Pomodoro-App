@@ -136,7 +136,10 @@ addTaskButton.addEventListener('click', () => {
 
 const buttons = document.querySelectorAll('.click');
 buttons.forEach((button) => {
-    button.onclick = () => { playSound('click') }
+    button.onclick = () => { 
+        const clickPromise = playSound('click');
+        Promise.all([clickPromise])
+    }
 })
 
 muteButton.addEventListener('click', () => { toggleMuteSound() })

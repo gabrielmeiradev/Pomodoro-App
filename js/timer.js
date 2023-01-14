@@ -63,12 +63,14 @@ export function startTimer() {
             modeInResume = modeInResume == 'pomodoro' ? 'break' : 'pomodoro'
             console.log(modeInResume)
             if(modeInResume == 'pomodoro') {
-                playSound('step')
-                switchModeDom('pomodoro')
+                playSound('step').then(() => {
+                    switchModeDom('pomodoro')
+                })
             }
             else {
-                playSound('complete')
-                switchModeDom(lastBreakChoose)
+                playSound('complete').then(() => {
+                    switchModeDom(lastBreakChoose)
+                })
             }
         }
         return renderTimer()
