@@ -22,7 +22,7 @@ export function renderTasks(){
                 <p>${task}</p>
             </div>
             <div class="task-aside">
-                <button onclick="deleteTask(${i})" class="task-ready" disabled>
+                <button onclick="deleteTask(${i})" class="task-ready button" disabled>
                 <span class="material-symbols-outlined">
                     task_alt
                 </span>
