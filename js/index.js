@@ -1,4 +1,4 @@
-import { addTask, formHandler, deleteTask } from './tasks.js'
+import { formHandler, deleteTask } from './tasks.js'
 import { startTimer, pauseTimer } from './timer.js'
 import { startPauseToggle, updateUIOnStop, switchModeDom } from './buttons.js'
 import { playSound } from './sounds.js'
