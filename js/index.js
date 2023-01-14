@@ -137,8 +137,11 @@ addTaskButton.addEventListener('click', () => {
 const buttons = document.querySelectorAll('.click');
 buttons.forEach((button) => {
     button.onclick = () => { 
-        const clickPromise = playSound('click');
-        Promise.all([clickPromise])
+        playSound('click').then(() => {
+            console.log('click audio played')
+        }).catch((error) => {
+            console.log('click audio error: ', error)
+        })
     }
 })
 

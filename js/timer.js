@@ -65,11 +65,13 @@ export function startTimer() {
             if(modeInResume == 'pomodoro') {
                 playSound('step').then(() => {
                     switchModeDom('pomodoro')
+                    console.log('step audio played')
                 })
             }
             else {
                 playSound('complete').then(() => {
                     switchModeDom(lastBreakChoose)
+                    console.log('complete audio played')
                 })
             }
         }
