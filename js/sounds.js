@@ -1,7 +1,8 @@
 import { muted } from  './index.js';
 
 export async function playSound(type){
-    if(muted) return
+    if(muted) return false
+    
     let audio
     switch(type){
         case 'step':

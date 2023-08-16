@@ -35,7 +35,7 @@ export function changeStartButtonVisualState(buttonType){
 
     startTimerButton.classList.add(button.className)
     startTimerButton.innerHTML = `
-    <span class="material-symbols-outlined">
+    <span class="material-symbols-outlined" translate="no">
         ${button.icon}
     </span>
     ${button.label}`
@@ -46,7 +46,7 @@ export function updateUIOnStop(){
     startTimerButton.classList.remove('pause')
     startTimerButton.classList.add('play')
     startTimerButton.innerHTML =  `
-    <span class="material-symbols-outlined">
+    <span class="material-symbols-outlined" translate="no">
         play_arrow
     </span>
     Start
